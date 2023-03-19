@@ -16,7 +16,7 @@ class Dataform(db.Model):
     wind = db.Column(db.Float(10), nullable=False)
 
 
-@app.route("/", methods=['POST', 'GET'])
+@app.route("/", methods=['GET', 'POST'])
 def data():
     if request.method == "POST":
         new_form = Dataform(
