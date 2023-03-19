@@ -1,3 +1,5 @@
+# with reference and a big thank you to Dominik (Maschga)
+
 from AI import control_algo
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
