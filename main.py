@@ -16,7 +16,7 @@ class Dataform(db.Model):
     wind = db.Column(db.Float(10), nullable=False)
 
 
-@app.route("/", methods=['POST'])
+@app.route("/", methods=['POST', 'GET'])
 def data():
     if request.method == "POST":
         new_form = Dataform(
@@ -27,15 +27,13 @@ def data():
         )
         db.session.add(new_form)
         db.session.commit()
+
+        ai(new_form.precipitation, new_form.max_temp, new_form.min_temp, new_form.wind)
+
     return render_template("index.html")
 
 
-def ai():
-    prec = float
-    max_temp = float
-    min_temp = float
-    wind = float
-
+def ai(prec: float, max_temp: float, min_temp: float, wind:float):
     ai_output = control_algo.control_algo(prec, max_temp, min_temp, wind)
 
     if ai_output == "Nieselregen":
