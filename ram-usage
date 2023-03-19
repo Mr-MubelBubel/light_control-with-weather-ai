@@ -1,0 +1,18 @@
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    20    175.7 MiB    175.7 MiB           1   @app.route("/", methods=['GET', 'POST'])
+    21                                         @profile
+    22                                         def data():
+    23    175.7 MiB      0.0 MiB           1       if request.method == "POST":
+    24    175.8 MiB      0.0 MiB           2           new_form = Dataform(
+    25    175.8 MiB      0.0 MiB           1               precipitation=request.form['precipitation'],
+    26    175.8 MiB      0.0 MiB           1               max_temp=request.form['max_temp'],
+    27    175.8 MiB      0.0 MiB           1               min_temp=request.form['min_temp'],
+    28    175.8 MiB      0.0 MiB           1               wind=request.form['wind']
+    29                                                 )
+    30    175.8 MiB      0.0 MiB           1           db.session.add(new_form)
+    31    176.6 MiB      0.8 MiB           1           db.session.commit()
+    32
+    33    176.9 MiB      0.3 MiB           1           ai(new_form.precipitation, new_form.max_temp, new_form.min_temp, new_form.wind)
+    34
+    35    176.9 MiB      0.0 MiB           1       return render_template("index.html")

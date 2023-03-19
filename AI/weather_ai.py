@@ -39,5 +39,5 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1, random_
 warnings.filterwarnings('ignore')
 xgb = XGBClassifier()
 xgb.fit(x_train, y_train)
-print("XGB Accuracy:{:.2f}%".format(xgb.score(x_test, y_test) * 100))
+# print("XGB Accuracy:{:.2f}%".format(xgb.score(x_test, y_test) * 100))
 

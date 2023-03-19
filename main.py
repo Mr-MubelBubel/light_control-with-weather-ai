@@ -1,6 +1,7 @@
 from AI import control_algo
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+# from memory_profiler import profile
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
@@ -17,6 +18,7 @@ class Dataform(db.Model):
 
 
 @app.route("/", methods=['GET', 'POST'])
+# @profile
 def data():
     if request.method == "POST":
         new_form = Dataform(
@@ -33,7 +35,7 @@ def data():
     return render_template("index.html")
 
 
-def ai(prec: float, max_temp: float, min_temp: float, wind:float):
+def ai(prec: float, max_temp: float, min_temp: float, wind: float):
     ai_output = control_algo.control_algo(prec, max_temp, min_temp, wind)
 
     if ai_output == "Nieselregen":
@@ -55,3 +57,6 @@ def ai(prec: float, max_temp: float, min_temp: float, wind:float):
 if __name__ == "__main__":
     app.run(debug=True)
 
+# Kill process
+# sudo lsof -i :<PortNumber>
+# kill -9 <PID>
