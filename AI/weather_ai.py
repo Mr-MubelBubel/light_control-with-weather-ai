@@ -8,7 +8,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
-data = pd.read_csv("../input/seattle-weather.csv")
+data = pd.read_csv("./input/seattle-weather.csv")
 
 warnings.filterwarnings('ignore', category=FutureWarning)
 

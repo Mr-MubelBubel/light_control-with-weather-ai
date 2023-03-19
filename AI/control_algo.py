@@ -1,4 +1,4 @@
-from weather_ai import xgb
+from .weather_ai import xgb
 
 
 def control_algo(precipitation, max_temp, min_temp, wind):
