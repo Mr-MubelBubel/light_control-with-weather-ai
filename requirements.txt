@@ -94,3 +94,4 @@ websocket-client==1.5.1
 Werkzeug==2.2.3
 widgetsnbextension==4.0.5
 xgboost==1.7.4
+flask-cors
