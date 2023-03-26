@@ -1,0 +1,17 @@
+.mod_one {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 20px;
+}
+
+.list li {
+    display: inline;
+    text-decoration: none;
+    list-style: none;
+}
+
+.result {
+    margin-left: 50%;
+    margin-top: 20px;
+    font-size: xx-large;
+}
