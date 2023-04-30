@@ -52,7 +52,7 @@ def data():
 
 def ai(prec: float, max_temp: float, min_temp: float, wind: float):
     ai_output = control_algo.control_algo(prec, max_temp, min_temp, wind)
-
+# These outputs must change to the light value of the lamp
     if ai_output == "Nieselregen":
         # led.value(0.7)
         print("1")
