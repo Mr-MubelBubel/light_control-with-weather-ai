@@ -1,0 +1,14 @@
+.box {
+    position: relative;
+}
+.box div {
+    position: absolute;
+}
+.bottom {
+    background: url("off.png");
+    z-index: 0;
+}
+.top {
+    background: url("on.png");
+    z-index: 1;
+}

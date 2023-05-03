@@ -14,9 +14,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-# Initialisation of the LED Pin
-# led = PWMLED(17)
-
 
 class Dataform(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -54,24 +51,17 @@ def ai(prec: float, max_temp: float, min_temp: float, wind: float):
     ai_output = control_algo.control_algo(prec, max_temp, min_temp, wind)
 # These outputs must change to the light value of the lamp
     if ai_output == "Nieselregen":
-        # led.value(0.7)
         print("1")
     elif ai_output == "Nebel":
-        # led.value(1.0)
         print("2")
     elif ai_output == "Regen":
-        # led.value(0.8)
         print("3")
     elif ai_output == "Schnee":
-        # led.value(0.5)
         print("4")
     elif ai_output == "Sonne":
-        # led.value(0.0)
         print("5")
 
     return ai_output
-    # led.value = 0.0
-    # min value 0.0 / max value 1.0
 
 
 if __name__ == "__main__":
