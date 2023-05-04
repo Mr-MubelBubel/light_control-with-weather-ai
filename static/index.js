@@ -19,11 +19,11 @@ for (const i of [1, 2, 3, 4]) {
             method: "POST",
             body: qs
         })
-        .then((response) => response.json())
-        .then(data => {
-            document.getElementById("result").innerHTML = data["result"]
+            .then((response) => response.json())
+            .then(data => {
+                document.getElementById("result").innerHTML = data["result"]
 
-            document.getElementById("light").style.opacity = opacities[data["result"]]
-        })
+                document.getElementById("light").style.opacity = opacities[data["result"]]
+            })
     })
 }

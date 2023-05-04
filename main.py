@@ -1,11 +1,7 @@
 from AI import control_algo
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-import time as t
 from flask_cors import CORS, cross_origin
-
-# from gpiozero import PWMLED
-# from memory_profiler import profile
 
 # Create Flask App and config database
 app = Flask(__name__)
@@ -25,7 +21,6 @@ class Dataform(db.Model):
 
 @app.route("/", methods=['GET', 'POST'])
 @cross_origin()
-# @profile
 def data():
     if request.method == "POST":
         new_form = Dataform(
@@ -36,10 +31,7 @@ def data():
         )
         db.session.add(new_form)
         db.session.commit()
-        start = t.time()
-        result = ai(new_form.precipitation, new_form.max_temp, new_form.min_temp, new_form.wind) # predict weather
-        end = t.time()
-        print(end - start)
+        result = ai(new_form.precipitation, new_form.max_temp, new_form.min_temp, new_form.wind)  # predict weather
 
         return {"result": result}
 
@@ -49,24 +41,11 @@ def data():
 
 def ai(prec: float, max_temp: float, min_temp: float, wind: float):
     ai_output = control_algo.control_algo(prec, max_temp, min_temp, wind)
-# These outputs must change to the light value of the lamp
-    if ai_output == "Nieselregen":
-        print("1")
-    elif ai_output == "Nebel":
-        print("2")
-    elif ai_output == "Regen":
-        print("3")
-    elif ai_output == "Schnee":
-        print("4")
-    elif ai_output == "Sonne":
-        print("5")
-
     return ai_output
 
 
 if __name__ == "__main__":
     app.run(debug=True)
-
 
 # Kill process
 # sudo lsof -i :<PortNumber>
