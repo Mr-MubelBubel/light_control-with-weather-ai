@@ -6,12 +6,12 @@ def control_algo(precipitation, max_temp, min_temp, wind):
     ot = xgb.predict(usr_input)
 
     if ot == 0:
-        return "Nieselregen"
+        return "Drizzle"
     elif ot == 1:
-        return "Nebel"
+        return "Fog"
     elif ot == 2:
-        return "Regen"
+        return "Rain"
     elif ot == 3:
-        return "Schnee"
+        return "Snow"
     else:
-        return "Sonne"
+        return "Sun"

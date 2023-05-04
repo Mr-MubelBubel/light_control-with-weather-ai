@@ -1,9 +1,9 @@
 opacities = {
-    "Sonne": 0.0,
-    "Schnee": 0.5,
-    "Nieselregen": 0.7,
-    "Regen": 0.8,
-    "Nebel": 1.0
+    "Sun": 0.0,
+    "Snow": 0.5,
+    "Drizzle": 0.7,
+    "Rain": 0.8,
+    "Fog": 1.0
 }
 
 for (const i of [1, 2, 3, 4]) {
